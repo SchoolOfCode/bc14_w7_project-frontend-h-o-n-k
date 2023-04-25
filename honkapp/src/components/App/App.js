@@ -4,25 +4,31 @@ import { questionDataJS } from "../../QuestionData";
 import { questionDataCSS } from "../../QuestionData";
 
 function App() {
-  const [category, setCategory] = useState(questionDataJS[1].image);
+  const [categoryQ, setCategoryQ] = useState("hey");
+
+  // const [categoryImg, setCategoryImg] = useState(questionDataJS[1].image);
+  // Q1 is index 0, Q2 is index 1, Q3 is index 2
 
   function handleCategoryChange(event) {
     const value = event.target.value;
     if (value === "CSS") {
-      setCategory(questionDataCSS[1].image);
+      setCategoryQ(questionDataCSS[Math.floor(Math.random() * 3)].question);
     } else if (value === "JS") {
-      setCategory(questionDataJS[1].image);
+      setCategoryQ(questionDataJS[Math.floor(Math.random() * 3)].question);
     }
   }
 
   return (
     <>
-      <select name="difficulty" id="difficulty" onChange={handleCategoryChange}>
-        <option value="CSS">CSS</option>
+      <select name="category" id="category" onChange={handleCategoryChange}>
+        <option selected disabled>
+          Select a category
+        </option>
         <option value="JS">JS</option>
+        <option value="CSS">CSS</option>
       </select>
-      <img src={category} alt="test" />
-      <div className="App">Test</div>
+      <h2>{categoryQ}</h2>
+      <div className="App"></div>
     </>
   );
 }
