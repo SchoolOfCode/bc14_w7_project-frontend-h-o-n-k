@@ -8,10 +8,14 @@ export const questionDataCSS = {
   },
   1: {
     image: "https://i.imgur.com/AAlLkvi.png",
-    question: "TestCSS1",
+    question: "what does CSS stand for",
     score: 1,
     difficulty: 1,
-    answer: "Test",
+    choice1: "Cascading Style sheets",
+    choice2: "Cascading Style sheeps",
+    choice3: "Cascading Style ships",
+    choice4: "Cascading Style snakes",
+    answer: "Cascading Style sheets",
   },
 
   2: {
