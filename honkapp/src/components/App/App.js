@@ -1,12 +1,12 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { questionDataJS } from "../../QuestionData";
-import { questionDataCSS } from "../../QuestionData";
-// import { Score } from "../ScoreContainer";
+import { questionDataJS, questionDataCSS } from "../../QuestionData";
 
 function App() {
-  const [categoryQ, setCategoryQ] = useState("hey");
-  const [categoryImg, setCategoryImg] = useState("");
+  const [categoryQ, setCategoryQ] = useState("Choose your category?");
+  const [categoryImg, setCategoryImg] = useState(
+    "https://i.imgur.com/UPMqTgr.png"
+  );
   const [randomNumber, setRandomNumber] = useState(0);
   const [answer, setAnswer] = useState("");
   const [choice, setChoice] = useState("");
@@ -15,6 +15,7 @@ function App() {
   const [button3, setButton3] = useState("");
   const [button4, setButton4] = useState("");
   const [score, setScore] = useState(0);
+  const [message, setMessage] = useState("");
 
   function randomiseNumber() {
     setRandomNumber(Math.floor(Math.random() * 3));
@@ -23,6 +24,7 @@ function App() {
   function nextQuestion() {
     randomiseNumber();
     setChoice("");
+    setMessage("");
     const data =
       categoryQ === questionDataCSS[randomNumber].question
         ? questionDataCSS[randomNumber]
@@ -64,6 +66,7 @@ function App() {
       setButton3(questionDataCSS[randomNumber].choice3);
       setButton4(questionDataCSS[randomNumber].choice4);
       setChoice("");
+      setMessage("");
     } else if (value === "JS") {
       setCategoryQ(questionDataJS[randomNumber].question);
       setCategoryImg(questionDataJS[randomNumber].image);
@@ -73,15 +76,16 @@ function App() {
       setButton3(questionDataJS[randomNumber].choice3);
       setButton4(questionDataJS[randomNumber].choice4);
       setChoice("");
+      setMessage("");
     }
   }
 
   useEffect(() => {
     if (choice !== "" && choice === answer) {
-      alert("Well done!");
+      setMessage("Well done! That is the right answer");
       setScore(score + 1);
     } else if (choice !== "" && choice !== answer) {
-      alert("Sorry, that's incorrect.");
+      setMessage(`Sorry, that's incorrect. The correct answer is ${answer}`);
       // Score.updateScore(false);
     }
   }, [choice, answer]);
@@ -109,8 +113,9 @@ function App() {
         <button className ="answer-option"onClick={() => handleChoice1()}>{button4}</button>
       </div>
       <button onClick={() => nextQuestion()}>Next Question</button>
-      <div className = "score-box">
-      <h4>Your score is:{score}</h4></div>
+
+      <h4> {message} </h4>
+      <h4>Score: {score} </h4>
       <div className="App"></div>
     </>
   );

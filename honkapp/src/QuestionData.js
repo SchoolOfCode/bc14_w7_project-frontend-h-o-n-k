@@ -1,6 +1,6 @@
 export const questionDataCSS = {
   0: {
-    image: "",
+    image: "https://i.imgur.com/UPMqTgr.png",
     question: "How do you select a class in CSS?",
     score: 1,
     difficulty: 1,
@@ -9,10 +9,9 @@ export const questionDataCSS = {
     choice3: ".",
     choice4: "@",
     answer: ".",
-    
   },
   1: {
-    image: "",
+    image: "https://i.imgur.com/UPMqTgr.png",
     question: "What does CSS stand for?",
     score: 1,
     difficulty: 1,
@@ -34,11 +33,11 @@ export const questionDataCSS = {
     choice4: "flex",
     answer: "flex",
   },
-  
 
   3: {
     image: "https://i.imgur.com/iJWzY8Q.png",
-    question: "What property would you use to make this button have rounded edges?",
+    question:
+      "What property would you use to make this button have rounded edges?",
     score: 1,
     difficulty: 1,
     choice1: "rounded-edges",
@@ -47,10 +46,11 @@ export const questionDataCSS = {
     choice4: "box-round",
     answer: "border-radius",
   },
-  
+
   4: {
-    image: "",
-    question: "Which of the following creates a margin around the element of 10px at the top, 20px at the sides and 2px at the bottom?",
+    image: "https://i.imgur.com/UPMqTgr.png",
+    question:
+      "Which of the following creates a margin around the element of 10px at the top, 20px at the sides and 2px at the bottom?",
     score: 1,
     difficulty: 1,
     choice1: "margin: 20px 10px 2px 2px",
@@ -59,12 +59,11 @@ export const questionDataCSS = {
     choice4: "margin: 2px 10px 20px",
     answer: "margin: 10px 20px 2px",
   },
-
 };
 
 export const questionDataJS = {
   0: {
-    image: "",
+    image: "https://i.imgur.com/UPMqTgr.png",
     question: "What type of variable is a 'const'?",
     score: 1,
     difficulty: 1,
@@ -76,7 +75,7 @@ export const questionDataJS = {
   },
 
   1: {
-    image:"https://i.imgur.com/5RDpqMc.png",
+    image: "https://i.imgur.com/5RDpqMc.png",
     question: "What missing word should go in the blank space below?",
     score: 1,
     difficulty: 1,
@@ -88,7 +87,7 @@ export const questionDataJS = {
   },
 
   2: {
-    image:"https://i.imgur.com/dkoR2BE.png",
+    image: "https://i.imgur.com/dkoR2BE.png",
     question: "Read the function below. What is the value of 'x'?",
     score: 1,
     difficulty: 1,
@@ -101,7 +100,8 @@ export const questionDataJS = {
 
   3: {
     image: "https://i.imgur.com/h5acI50.png",
-    question: "How would you select the key with the value 'Buenos Aires' in this nested object?",
+    question:
+      "How would you select the key with the value 'Buenos Aires' in this nested object?",
     score: 1,
     difficulty: 1,
     choice1: "capital[1]",
@@ -110,10 +110,9 @@ export const questionDataJS = {
     choice4: "theWorld.continent.country[0].capital",
     answer: "theWorld.country[0].capital",
   },
-  
 
   4: {
-    image:"https://i.imgur.com/1ujS9k4.png",
+    image: "https://i.imgur.com/1ujS9k4.png",
     question: "What word is missing from the code below?",
     score: 1,
     difficulty: 1,
@@ -124,7 +123,3 @@ export const questionDataJS = {
     answer: "Math",
   },
 };
-
-
-
-  
