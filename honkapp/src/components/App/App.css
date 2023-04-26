@@ -1,3 +1,13 @@
+html, body {
+height: 100%;
+width: 100%;
+margin: 0;
+Padding: 0;
+
+}
+
+
+
 :root {
   --richBlack: #000717;
   --platinum : #E0E0E0;
@@ -16,18 +26,20 @@
   background-color: var(--richBlack);
   border-radius: 10px;
   width: 60%;
-  margin: 0 auto;
+  margin: 0 auto 15px  ;
   padding: 10px;
-  
+ 
 }
 
 .button-container {
   background-color: var(--SeaFoamGreen);
-  border-radius: 10px;
-  width: 60%;
+  border-radius: 5px;
+  width: 70%;
   margin: 0 auto;
-  padding: 10px;
-
+  padding: 5px;
+  display: flex;
+  justify-content: space-between; 
+  height: 70 px;
 
 }
 
@@ -43,4 +55,34 @@ box-shadow: 4px 4px 1px  var(--richBlack);
 }
 
 
+.drop-down {
+  color: var(--richBlack);
+  background-color: var(--platinum);
+  border-radius: 10px;
+  padding: 5px;
+  width: 50%;
+  margin: 20px auto
 
+}
+
+option {
+  background-color: var(--platinum);
+  color:  var(--richBlack);
+}
+.score-box {
+  color:  var(--platinum);
+  background-color: var(--SeaFoamGreen);;
+  border-radius: 10px;
+  padding: 5px;
+  width: 30%;
+  margin: 20px auto 0; 
+}
+.answer-option {
+  display: inline-block;
+  color: var(--richBlack);
+  background-color: var(--platinum);
+  height: 40px; 
+  padding: 5px;
+  width: 20%; 
+  
+}
