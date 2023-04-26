@@ -22,9 +22,17 @@ function App() {
   function nextQuestion() {
     randomiseNumber();
     setChoice("");
-    handleCategoryChange({
-      target: { value: categoryQ.startsWith("J") ? "JS" : "CSS" },
-    });
+    const data =
+      categoryQ === questionDataCSS[randomNumber].question
+        ? questionDataCSS[randomNumber]
+        : questionDataJS[randomNumber];
+    setCategoryQ(data.question);
+    setCategoryImg(data.image);
+    setAnswer(data.answer);
+    setButton1(data.choice1);
+    setButton2(data.choice2);
+    setButton3(data.choice3);
+    setButton4(data.choice4);
   }
 
   function handleChoice1() {
