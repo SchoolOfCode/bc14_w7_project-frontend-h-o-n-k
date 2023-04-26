@@ -11,9 +11,9 @@ Plan:
 import React, { useState } from "react";
 
 function Score() {
-  const [score, setScore] = useState(0);
+    const [score, setScore] = useState(0)
 
-  function updateScore( isCorrect ) {
+  function updateScore(isCorrect) {
     if (isCorrect) {
       setScore(score + 1);
     }

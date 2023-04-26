@@ -2,7 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { questionDataJS } from "../../QuestionData";
 import { questionDataCSS } from "../../QuestionData";
-// import Score from "../ScoreContainer";
+// import { Score } from "../ScoreContainer";
 
 function App() {
   const [categoryQ, setCategoryQ] = useState("hey");
@@ -14,6 +14,7 @@ function App() {
   const [button2, setButton2] = useState("");
   const [button3, setButton3] = useState("");
   const [button4, setButton4] = useState("");
+  const [score, setScore] = useState(0)
 
   function randomiseNumber() {
     setRandomNumber(Math.floor(Math.random() * 3));
@@ -46,7 +47,7 @@ function App() {
       setButton2(questionDataCSS[randomNumber].choice2);
       setButton3(questionDataCSS[randomNumber].choice3);
       setButton4(questionDataCSS[randomNumber].choice4);
-      setChoice("")
+      setChoice("");
     } else if (value === "JS") {
       setCategoryQ(questionDataJS[randomNumber].question);
       setCategoryImg(questionDataJS[randomNumber].image);
@@ -55,22 +56,22 @@ function App() {
       setButton2(questionDataJS[randomNumber].choice2);
       setButton3(questionDataJS[randomNumber].choice3);
       setButton4(questionDataJS[randomNumber].choice4);
-      setChoice("")
+      setChoice("");
     }
   }
-
 
   useEffect(() => {
     if (choice !== "" && choice === answer) {
       alert("Well done!");
+      setScore(score+1)
     } else if (choice !== "" && choice !== answer) {
       alert("Sorry, that's incorrect.");
+      // Score.updateScore(false);
     }
   }, [choice, answer]);
-    // assign a value to userAnswer from one of the 4 choice buttons
-    // compare choice of button vs QuestionData.js answer
-    // send alert to user if answer is right
-  
+  // assign a value to userAnswer from one of the 4 choice buttons
+  // compare choice of button vs QuestionData.js answer
+  // send alert to user if answer is right
 
   return (
     <>
@@ -88,7 +89,7 @@ function App() {
       <button onClick={() => handleChoice3()}>{button3}</button>
       <button onClick={() => handleChoice4()}>{button4}</button>
       <h4> {randomNumber} </h4>
-      {/* <Score updateScore={ Score.updateScore }/> */}
+      <h4> {score} </h4>
       <div className="App"></div>
     </>
   );
