@@ -24,22 +24,21 @@ const randomNumber = (Math.floor(Math.random() * 3))
     }
   }
 
-function handleChoice1() {
-let userAnswer = questionDataCSS[randomNumber].choice1;
-checkAnswer(userAnswer);
-}
+  function handleChoiceClick(choice) {
+    if (choice == answer) { 
+      alert("Well done!");
+    } else {
+      alert("Sorry, that's incorrect.");
+    }
+  }
+
 
 function checkAnswer() {  
 
 // assign a value to userAnswer from one of the 4 choice buttons 
 // compare choice of button vs QuestionData.js answer 
 // send alert to user if answer is right 
-
-if (questionDataCSS[randomNumber].choice1 === answer) {
-  alert ("well done")
-}}
-
-
+}
 
   return (
     <>
@@ -51,10 +50,18 @@ if (questionDataCSS[randomNumber].choice1 === answer) {
         <option value="CSS">CSS</option>
       </select>
       <h2>{categoryQ}</h2>
-      <button onClick = {handleChoice1} >{questionDataCSS[randomNumber].choice1}</button>
-      <button>{questionDataCSS[randomNumber].choice2}  </button>
-      <button>{questionDataCSS[randomNumber].choice3}  </button>
-      <button>{questionDataCSS[randomNumber].choice4}  </button>
+    <button onClick={() => handleChoiceClick(questionDataCSS[randomNumber].choice1)}>
+        {questionDataCSS[randomNumber].choice1}
+      </button>
+      <button onClick={() => handleChoiceClick(questionDataCSS[randomNumber].choice2)}>
+        {questionDataCSS[randomNumber].choice2}
+      </button>
+      <button onClick={() => handleChoiceClick(questionDataCSS[randomNumber].choice3)}>
+        {questionDataCSS[randomNumber].choice3}
+      </button>
+      <button onClick={() => handleChoiceClick(questionDataCSS[randomNumber].choice4)}>
+        {questionDataCSS[randomNumber].choice4}
+      </button>
       <h4> {randomNumber} </h4>
       <div className="App"></div>
     </>
