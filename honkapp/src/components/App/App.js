@@ -1,11 +1,12 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { questionDataJS } from "../../QuestionData";
 import { questionDataCSS } from "../../QuestionData";
 // import Score from "../ScoreContainer";
 
 function App() {
   const [categoryQ, setCategoryQ] = useState("hey");
+  const [categoryImg, setCategoryImg] = useState("");
   const [randomNumber, setRandomNumber] = useState(0);
   const [answer, setAnswer] = useState("");
   const [choice, setChoice] = useState("");
@@ -20,21 +21,17 @@ function App() {
 
   function handleChoice1() {
     setChoice(button1);
-    checkAnswer();
   }
 
   function handleChoice2() {
     setChoice(button2);
-    checkAnswer();
   }
 
   function handleChoice3() {
     setChoice(button3);
-    checkAnswer();
   }
   function handleChoice4() {
     setChoice(button4);
-    checkAnswer();
   }
 
   function handleCategoryChange(event) {
@@ -43,41 +40,37 @@ function App() {
 
     if (value === "CSS") {
       setCategoryQ(questionDataCSS[randomNumber].question);
+      setCategoryImg(questionDataCSS[randomNumber].image);
       setAnswer(questionDataCSS[randomNumber].answer);
       setButton1(questionDataCSS[randomNumber].choice1);
       setButton2(questionDataCSS[randomNumber].choice2);
       setButton3(questionDataCSS[randomNumber].choice3);
       setButton4(questionDataCSS[randomNumber].choice4);
+      setChoice("")
     } else if (value === "JS") {
       setCategoryQ(questionDataJS[randomNumber].question);
+      setCategoryImg(questionDataJS[randomNumber].image);
       setAnswer(questionDataJS[randomNumber].answer);
       setButton1(questionDataJS[randomNumber].choice1);
       setButton2(questionDataJS[randomNumber].choice2);
       setButton3(questionDataJS[randomNumber].choice3);
       setButton4(questionDataJS[randomNumber].choice4);
+      setChoice("")
     }
   }
 
-  // function handleChoiceClick(choice) {
-  //   if (choice == answer) {
-  //     alert("Well done!");
-  //   } else {
-  //     alert("Sorry, that's incorrect.");
-  //   }
-  // }
 
-  function checkAnswer() {
-    if (choice === answer) {
+  useEffect(() => {
+    if (choice !== "" && choice === answer) {
       alert("Well done!");
-      // Score.updateScore(true)
-    } else {
+    } else if (choice !== "" && choice !== answer) {
       alert("Sorry, that's incorrect.");
-      // Score.updateScore(false)
     }
+  }, [choice, answer]);
     // assign a value to userAnswer from one of the 4 choice buttons
     // compare choice of button vs QuestionData.js answer
     // send alert to user if answer is right
-  }
+  
 
   return (
     <>
@@ -89,6 +82,7 @@ function App() {
         <option value="CSS">CSS</option>
       </select>
       <h2>{categoryQ}</h2>
+      <img src={categoryImg} alt="question"></img>
       <button onClick={() => handleChoice1()}>{button1}</button>
       <button onClick={() => handleChoice2()}>{button2}</button>
       <button onClick={() => handleChoice3()}>{button3}</button>
