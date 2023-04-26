@@ -20,6 +20,22 @@ function App() {
     setRandomNumber(Math.floor(Math.random() * 3));
   }
 
+  function nextQuestion() {
+    randomiseNumber();
+    setChoice("");
+    const data =
+      categoryQ === questionDataCSS[randomNumber].question
+        ? questionDataCSS[randomNumber]
+        : questionDataJS[randomNumber];
+    setCategoryQ(data.question);
+    setCategoryImg(data.image);
+    setAnswer(data.answer);
+    setButton1(data.choice1);
+    setButton2(data.choice2);
+    setButton3(data.choice3);
+    setButton4(data.choice4);
+  }
+
   function handleChoice1() {
     setChoice(button1);
   }
@@ -88,6 +104,7 @@ function App() {
       <button onClick={() => handleChoice2()}>{button2}</button>
       <button onClick={() => handleChoice3()}>{button3}</button>
       <button onClick={() => handleChoice4()}>{button4}</button>
+      <button onClick={() => nextQuestion()}>Next Question</button>
       <h4> {randomNumber} </h4>
       <h4> {score} </h4>
       <div className="App"></div>
