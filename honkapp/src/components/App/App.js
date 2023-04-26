@@ -18,7 +18,7 @@ function App() {
   const [message, setMessage] = useState("");
 
   function randomiseNumber() {
-    setRandomNumber(Math.floor(Math.random() * 3));
+    setRandomNumber(Math.floor(Math.random() * 4));
   }
 
   function nextQuestion() {
@@ -95,7 +95,12 @@ function App() {
 
   return (
     <>
-      <select name="category" id="category" onChange={handleCategoryChange} className = "drop-down">
+      <select
+        name="category"
+        id="category"
+        onChange={handleCategoryChange}
+        className="drop-down"
+      >
         <option selected disabled>
           Select a category
         </option>
@@ -107,10 +112,18 @@ function App() {
         <img src={categoryImg} alt="question"></img>
       </div>
       <div className="button-container">
-        <button className ="answer-option"onClick={() => handleChoice1()}>{button1}</button>
-        <button className ="answer-option"onClick={() => handleChoice1()}>{button2}</button>
-        <button className ="answer-option"onClick={() => handleChoice1()}>{button3}</button>
-        <button className ="answer-option"onClick={() => handleChoice1()}>{button4}</button>
+        <button className="answer-option" onClick={() => handleChoice1()}>
+          {button1}
+        </button>
+        <button className="answer-option" onClick={() => handleChoice2()}>
+          {button2}
+        </button>
+        <button className="answer-option" onClick={() => handleChoice3()}>
+          {button3}
+        </button>
+        <button className="answer-option" onClick={() => handleChoice4()}>
+          {button4}
+        </button>
       </div>
       <button onClick={() => nextQuestion()}>Next Question</button>
 
