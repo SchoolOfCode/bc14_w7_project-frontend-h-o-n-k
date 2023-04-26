@@ -19,6 +19,14 @@ function App() {
     setRandomNumber(Math.floor(Math.random() * 3));
   }
 
+  function nextQuestion() {
+    randomiseNumber();
+    setChoice("");
+    handleCategoryChange({
+      target: { value: categoryQ.startsWith("J") ? "JS" : "CSS" },
+    });
+  }
+
   function handleChoice1() {
     setChoice(button1);
   }
@@ -46,7 +54,7 @@ function App() {
       setButton2(questionDataCSS[randomNumber].choice2);
       setButton3(questionDataCSS[randomNumber].choice3);
       setButton4(questionDataCSS[randomNumber].choice4);
-      setChoice("")
+      setChoice("");
     } else if (value === "JS") {
       setCategoryQ(questionDataJS[randomNumber].question);
       setCategoryImg(questionDataJS[randomNumber].image);
@@ -55,10 +63,9 @@ function App() {
       setButton2(questionDataJS[randomNumber].choice2);
       setButton3(questionDataJS[randomNumber].choice3);
       setButton4(questionDataJS[randomNumber].choice4);
-      setChoice("")
+      setChoice("");
     }
   }
-
 
   useEffect(() => {
     if (choice !== "" && choice === answer) {
@@ -67,10 +74,9 @@ function App() {
       alert("Sorry, that's incorrect.");
     }
   }, [choice, answer]);
-    // assign a value to userAnswer from one of the 4 choice buttons
-    // compare choice of button vs QuestionData.js answer
-    // send alert to user if answer is right
-  
+  // assign a value to userAnswer from one of the 4 choice buttons
+  // compare choice of button vs QuestionData.js answer
+  // send alert to user if answer is right
 
   return (
     <>
@@ -87,6 +93,7 @@ function App() {
       <button onClick={() => handleChoice2()}>{button2}</button>
       <button onClick={() => handleChoice3()}>{button3}</button>
       <button onClick={() => handleChoice4()}>{button4}</button>
+      <button onClick={() => nextQuestion()}>Next Question</button>
       <h4> {randomNumber} </h4>
       {/* <Score updateScore={ Score.updateScore }/> */}
       <div className="App"></div>
