@@ -1,12 +1,12 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { questionDataJS } from "../../QuestionData";
-import { questionDataCSS } from "../../QuestionData";
-// import { Score } from "../ScoreContainer";
+import { questionDataJS, questionDataCSS } from "../../QuestionData";
 
 function App() {
-  const [categoryQ, setCategoryQ] = useState("hey");
-  const [categoryImg, setCategoryImg] = useState("");
+  const [categoryQ, setCategoryQ] = useState("Choose your category?");
+  const [categoryImg, setCategoryImg] = useState(
+    "https://i.imgur.com/UPMqTgr.png"
+  );
   const [randomNumber, setRandomNumber] = useState(0);
   const [answer, setAnswer] = useState("");
   const [choice, setChoice] = useState("");
