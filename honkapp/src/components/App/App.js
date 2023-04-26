@@ -2,35 +2,20 @@ import "./App.css";
 import React, { useState } from "react";
 import { questionDataJS } from "../../QuestionData";
 import { questionDataCSS } from "../../QuestionData";
+// import Score from "../ScoreContainer";
 
 function App() {
   const [categoryQ, setCategoryQ] = useState("hey");
-  const randomNumber = Math.floor(Math.random() * 3);
-  const [answer, setAnswer] = useState(" ");
-  const [choice, setChoice] = useState(" ");
+  const [randomNumber, setRandomNumber] = useState(0);
+  const [answer, setAnswer] = useState("");
+  const [choice, setChoice] = useState("");
   const [button1, setButton1] = useState("");
   const [button2, setButton2] = useState("");
   const [button3, setButton3] = useState("");
   const [button4, setButton4] = useState("");
 
-  function handleCategoryChange(event) {
-    const value = event.target.value;
-
-    if (value === "CSS") {
-      setCategoryQ(questionDataCSS[randomNumber].question);
-      setAnswer(questionDataCSS[randomNumber].answer);
-      setButton1(questionDataCSS[randomNumber].choice1);
-      setButton2(questionDataCSS[randomNumber].choice2);
-      setButton3(questionDataCSS[randomNumber].choice3);
-      setButton4(questionDataCSS[randomNumber].choice4);
-    } else if (value === "JS") {
-      setCategoryQ(questionDataJS[randomNumber].question);
-      setAnswer(questionDataJS[randomNumber].answer);
-      setButton1(questionDataJS[randomNumber].choice1);
-      setButton2(questionDataJS[randomNumber].choice2);
-      setButton3(questionDataJS[randomNumber].choice3);
-      setButton4(questionDataJS[randomNumber].choice4);
-    }
+  function randomiseNumber() {
+    setRandomNumber(Math.floor(Math.random() * 3));
   }
 
   function handleChoice1() {
@@ -52,6 +37,27 @@ function App() {
     checkAnswer();
   }
 
+  function handleCategoryChange(event) {
+    const value = event.target.value;
+    randomiseNumber();
+
+    if (value === "CSS") {
+      setCategoryQ(questionDataCSS[randomNumber].question);
+      setAnswer(questionDataCSS[randomNumber].answer);
+      setButton1(questionDataCSS[randomNumber].choice1);
+      setButton2(questionDataCSS[randomNumber].choice2);
+      setButton3(questionDataCSS[randomNumber].choice3);
+      setButton4(questionDataCSS[randomNumber].choice4);
+    } else if (value === "JS") {
+      setCategoryQ(questionDataJS[randomNumber].question);
+      setAnswer(questionDataJS[randomNumber].answer);
+      setButton1(questionDataJS[randomNumber].choice1);
+      setButton2(questionDataJS[randomNumber].choice2);
+      setButton3(questionDataJS[randomNumber].choice3);
+      setButton4(questionDataJS[randomNumber].choice4);
+    }
+  }
+
   // function handleChoiceClick(choice) {
   //   if (choice == answer) {
   //     alert("Well done!");
@@ -63,8 +69,10 @@ function App() {
   function checkAnswer() {
     if (choice === answer) {
       alert("Well done!");
+      // Score.updateScore(true)
     } else {
       alert("Sorry, that's incorrect.");
+      // Score.updateScore(false)
     }
     // assign a value to userAnswer from one of the 4 choice buttons
     // compare choice of button vs QuestionData.js answer
@@ -86,6 +94,7 @@ function App() {
       <button onClick={() => handleChoice3()}>{button3}</button>
       <button onClick={() => handleChoice4()}>{button4}</button>
       <h4> {randomNumber} </h4>
+      {/* <Score updateScore={ Score.updateScore }/> */}
       <div className="App"></div>
     </>
   );
