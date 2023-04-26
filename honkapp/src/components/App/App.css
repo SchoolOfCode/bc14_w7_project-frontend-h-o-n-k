@@ -1,15 +1,45 @@
-.App {
+:root {
+  --richBlack: #000717;
+  --platinum : #E0E0E0;
+  --SeaFoamGreen : #368A60;
+  --ChefBlue : #4D8DDF;
+}
+
+* {
   text-align: center;
+  color: var(--platinum);
+  background-color: var(--ChefBlue);
+  
+}
+
+.question-container {
+  background-color: var(--richBlack);
+  border-radius: 10px;
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px;
+  
+}
+
+.button-container {
+  background-color: var(--SeaFoamGreen);
+  border-radius: 10px;
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px;
+
+
 }
 
 
-.container {
-  display: _______;
-}
+button{
+color: var(--richBlack);
+background-color: var(--platinum);
+border-radius: 10px;
+padding: 10px;
+box-shadow: 4px 4px 1px  var(--richBlack);
 
 
-.button{
-_____________: 5px;
 }
 
 

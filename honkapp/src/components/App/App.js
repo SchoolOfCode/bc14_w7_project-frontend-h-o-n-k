@@ -14,7 +14,7 @@ function App() {
   const [button2, setButton2] = useState("");
   const [button3, setButton3] = useState("");
   const [button4, setButton4] = useState("");
-  const [score, setScore] = useState(0)
+  const [score, setScore] = useState(0);
 
   function randomiseNumber() {
     setRandomNumber(Math.floor(Math.random() * 3));
@@ -79,7 +79,7 @@ function App() {
   useEffect(() => {
     if (choice !== "" && choice === answer) {
       alert("Well done!");
-      setScore(score+1)
+      setScore(score + 1);
     } else if (choice !== "" && choice !== answer) {
       alert("Sorry, that's incorrect.");
       // Score.updateScore(false);
@@ -98,14 +98,17 @@ function App() {
         <option value="JS">JS</option>
         <option value="CSS">CSS</option>
       </select>
-      <h2>{categoryQ}</h2>
-      <img src={categoryImg} alt="question"></img>
-      <button onClick={() => handleChoice1()}>{button1}</button>
-      <button onClick={() => handleChoice2()}>{button2}</button>
-      <button onClick={() => handleChoice3()}>{button3}</button>
-      <button onClick={() => handleChoice4()}>{button4}</button>
+      <div className="question-container">
+        <h2>{categoryQ}</h2>
+        <img src={categoryImg} alt="question"></img>
+      </div>
+      <div className="button-container">
+        <button onClick={() => handleChoice1()}>{button1}</button>
+        <button onClick={() => handleChoice2()}>{button2}</button>
+        <button onClick={() => handleChoice3()}>{button3}</button>
+        <button onClick={() => handleChoice4()}>{button4}</button>
+      </div>
       <button onClick={() => nextQuestion()}>Next Question</button>
-      <h4> {randomNumber} </h4>
       <h4> {score} </h4>
       <div className="App"></div>
     </>
