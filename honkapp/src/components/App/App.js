@@ -13,8 +13,8 @@ function App() {
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("");
   const [category, setCategory] = useState("");
+  const [clicked, setClicked] = useState(false);
 
-  
   useEffect(() => {
     const storedScore = localStorage.getItem("score");
     if (storedScore) {
@@ -44,6 +44,7 @@ function App() {
     randomiseNumber();
     setChoices([]);
     setMessage("");
+    setClicked(false);
     setCategoryQ(data.question);
     setCategoryImg(data.image);
     setAnswer(data.answer);
@@ -56,9 +57,11 @@ function App() {
       setScore(score + 1);
       localStorage.setItem("score", score + 1);
       playsoundCorrect();
+      setClicked(true);
     } else {
       setMessage(`Sorry, that's incorrect. The correct answer is ${answer}`);
       playsoundIncorrect();
+      setClicked(true);
     }
   }
 
@@ -99,15 +102,15 @@ function App() {
         <option value="CSS">CSS</option>
       </select>
       <div className="question-container">
-  <h2 className="question">{categoryQ}</h2>
-  {categoryImg && (
-    <img
-      src={categoryImg}
-      onError={(event) => (event.target.style.display = "none")}
-      alt="question"
-    ></img>
-  )}
-</div>
+        <h2 className="question">{categoryQ}</h2>
+        {categoryImg && (
+          <img
+            src={categoryImg}
+            onError={(event) => (event.target.style.display = "none")}
+            alt="question"
+          ></img>
+        )}
+      </div>
 
       <div className="button-container">
         {choices.map((choice, index) => (
@@ -115,12 +118,15 @@ function App() {
             key={index}
             className="answer-option"
             onClick={() => handleChoice(choice)}
+            disabled={clicked}
           >
             {choice}
           </button>
         ))}
       </div>
-      <button className="next-qu-button" onClick={() => nextQuestion()}>Next Question</button>
+      <button className="next-qu-button" onClick={() => nextQuestion()}>
+        Next Question
+      </button>
       <h4> {message} </h4>
       <h4 className="score-container">Score: {score}</h4>
     </>
