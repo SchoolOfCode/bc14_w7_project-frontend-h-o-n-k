@@ -71,6 +71,55 @@ export const questionDataCSS = {
     choice4: "km",
     answer: "km",
   },
+
+  6: {
+    image: "",
+    question: "What word should go in the blank below to align the text in the centre?",
+    score: 1,
+    difficulty: 1,
+    choice1: "centre",
+    choice2: "auto",
+    choice3: "middle",
+    choice4: "center",
+    answer: "center",
+  },
+
+  7: {
+    image: "",
+    question: "If you wanted to change the size of the font, what property should you use?",
+    score: 1,
+    difficulty: 1,
+    choice1: "font-style",
+    choice2: "font-size",
+    choice3: "font-normal",
+    choice4: "font-weight",
+    answer: "font-size",
+  },
+
+  8: {
+    image: "https://i.imgur.com/8NNHIaI.png",
+    question: "What property would you need to create an inner shadow like the one shown in the picture?",
+    score: 1,
+    difficulty: 1,
+    choice1: "shadow",
+    choice2: "box-shade",
+    choice3: "box-filter",
+    choice4: "box-shadow",
+    answer: "box-shadow",
+  },
+  
+  9: {
+    image: "",
+    question: "If you wanted to change the colour of a link once it has been clicked, what pseudo-class would you need?",
+    score: 1,
+    difficulty: 1,
+    choice1: ":link",
+    choice2: ":active",
+    choice3: ":click-change",
+    choice4: ":visited",
+    answer: ":visited",
+  },
+
 };
 
 export const questionDataJS = {
@@ -137,7 +186,7 @@ export const questionDataJS = {
 
   5: {
     image: "",
-    question: "How do we if statement in JavaScript?",
+    question: "How do we write an if statement in JavaScript?",
     score: 1,
     difficulty: 1,
     choice1: "if (x === 5)",
@@ -146,4 +195,57 @@ export const questionDataJS = {
     choice4: "if x == 5",
     answer: "if (x === 5)",
   },
+
+  6: {
+    image: "https://i.imgur.com/gYqyY23.png",
+    question: "How do write comments over multiple lines in JavaScript?",
+    score: 1,
+    difficulty: 1,
+    choice1: "/* */",
+    choice2: "//",
+    choice3: "<!-- -->",
+    choice4: "{ }",
+    answer: "/* */",
+  },
+  
+  7: {
+    image: "https://i.imgur.com/uB9FH6M.png",
+    question: "What do you think the expected output of this code will be?",
+    score: 1,
+    difficulty: 1,
+    choice1: "null",
+    choice2: "5",
+    choice3: "2",
+    choice4: "4",
+    answer: "4",
+  },
+  
+  8: {
+    image: "",
+    question: "What missing word should go in the blank below?",
+    score: 1,
+    difficulty: 1,
+    choice1: "async",
+    choice2: "const",
+    choice3: "await",
+    choice4: "new",
+    answer: "async",
+  },
+
+  9: {
+    image: "https://i.imgur.com/Z9jGZ5e.png",
+    question: "How do you write the arrow function in JavaScript?",
+    score: 1,
+    difficulty: 1,
+    choice1: "==>",
+    choice2: "[] >",
+    choice3: "() =>",
+    choice4: "+=>",
+    answer: "() =>",
+  },
+
+
 };
+
+
+
