@@ -1,6 +1,6 @@
 export const questionDataCSS = {
   0: {
-    image: "https://i.imgur.com/UPMqTgr.png",
+    image: "",
     question: "How do you select a class in CSS?",
     score: 1,
     difficulty: 1,
@@ -11,7 +11,7 @@ export const questionDataCSS = {
     answer: ".",
   },
   1: {
-    image: "https://i.imgur.com/UPMqTgr.png",
+    image: "",
     question: "What does CSS stand for?",
     score: 1,
     difficulty: 1,
@@ -48,7 +48,7 @@ export const questionDataCSS = {
   },
 
   4: {
-    image: "https://i.imgur.com/UPMqTgr.png",
+    image: "",
     question:
       "Which of the following creates a margin around the element of 10px at the top, 20px at the sides and 2px at the bottom?",
     score: 1,
@@ -59,11 +59,23 @@ export const questionDataCSS = {
     choice4: "margin: 2px 10px 20px",
     answer: "margin: 10px 20px 2px",
   },
+
+  5: {
+    image: "",
+    question: "Which of the following is not a valid CSS length unit?",
+    score: 1,
+    difficulty: 1,
+    choice1: "cm",
+    choice2: "mm",
+    choice3: "dm",
+    choice4: "km",
+    answer: "km",
+  },
 };
 
 export const questionDataJS = {
   0: {
-    image: "https://i.imgur.com/UPMqTgr.png",
+    image: "",
     question: "What type of variable is a 'const'?",
     score: 1,
     difficulty: 1,
@@ -121,5 +133,17 @@ export const questionDataJS = {
     choice3: "Calculate",
     choice4: "Math",
     answer: "Math",
+  },
+
+  5: {
+    image: "",
+    question: "How do we if statement in JavaScript?",
+    score: 1,
+    difficulty: 1,
+    choice1: "if (x === 5)",
+    choice2: "if x === 5",
+    choice3: "if x = 5",
+    choice4: "if x == 5",
+    answer: "if (x === 5)",
   },
 };
