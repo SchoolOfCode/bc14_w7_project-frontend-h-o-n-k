@@ -1,7 +1,7 @@
 import "./App.css";
 import correct from "../../Assets/correct.wav";
 import incorrect from "../../Assets/incorrect.wav";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { questionDataJS, questionDataCSS } from "../../QuestionData";
 
 function App() {
@@ -13,7 +13,14 @@ function App() {
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("");
   const [category, setCategory] = useState("");
-  const [clicked, setClicked] = useState(false);
+
+  
+  useEffect(() => {
+    const storedScore = localStorage.getItem("score");
+    if (storedScore) {
+      setScore(parseInt(storedScore));
+    }
+  }, []);
 
   function playsoundCorrect() {
     new Audio(correct).play();
@@ -37,7 +44,6 @@ function App() {
     randomiseNumber();
     setChoices([]);
     setMessage("");
-    setClicked(false);
     setCategoryQ(data.question);
     setCategoryImg(data.image);
     setAnswer(data.answer);
@@ -48,12 +54,11 @@ function App() {
     if (choice === answer) {
       setMessage("Well done! That is the correct answer!");
       setScore(score + 1);
+      localStorage.setItem("score", score + 1);
       playsoundCorrect();
-      setClicked(true);
     } else {
       setMessage(`Sorry, that's incorrect. The correct answer is ${answer}`);
       playsoundIncorrect();
-      setClicked(true);
     }
   }
 
@@ -69,7 +74,6 @@ function App() {
       setAnswer(data.answer);
       setChoices([data.choice1, data.choice2, data.choice3, data.choice4]);
       setMessage("");
-      setClicked(false)
     } else if (value === "JS") {
       const data = questionDataJS[randomNumber];
       setCategoryQ(data.question);
@@ -77,7 +81,6 @@ function App() {
       setAnswer(data.answer);
       setChoices([data.choice1, data.choice2, data.choice3, data.choice4]);
       setMessage("");
-      setClicked(false)
     }
   }
 
@@ -96,28 +99,30 @@ function App() {
         <option value="CSS">CSS</option>
       </select>
       <div className="question-container">
-        <h2 className="question">{categoryQ}</h2>
-        <img
-          src={categoryImg}
-          onError={(event) => (event.target.style.display = "none")}
-          alt="question"
-        ></img>
-      </div>
+  <h2 className="question">{categoryQ}</h2>
+  {categoryImg && (
+    <img
+      src={categoryImg}
+      onError={(event) => (event.target.style.display = "none")}
+      alt="question"
+    ></img>
+  )}
+</div>
+
       <div className="button-container">
         {choices.map((choice, index) => (
           <button
             key={index}
             className="answer-option"
             onClick={() => handleChoice(choice)}
-            disabled={clicked}
           >
             {choice}
           </button>
         ))}
       </div>
-      <button className = "next-qu-button" onClick={() => nextQuestion()}>Next Question</button>
+      <button onClick={() => nextQuestion()}>Next Question</button>
       <h4> {message} </h4>
-      <h4 className="score-container">Score: {score}</h4>
+      <h4>Score: {score}</h4>
     </>
   );
 }
