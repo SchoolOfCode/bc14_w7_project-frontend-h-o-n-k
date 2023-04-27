@@ -6,9 +6,7 @@ import { questionDataJS, questionDataCSS } from "../../QuestionData";
 
 function App() {
   const [categoryQ, setCategoryQ] = useState("Select a category!");
-  const [categoryImg, setCategoryImg] = useState(
-    "https://i.imgur.com/UPMqTgr.png"
-  );
+  const [categoryImg, setCategoryImg] = useState("");
   const [randomNumber, setRandomNumber] = useState(0);
   const [answer, setAnswer] = useState("");
   const [choices, setChoices] = useState([]);
@@ -93,7 +91,11 @@ function App() {
       </select>
       <div className="question-container">
         <h2 className="question">{categoryQ}</h2>
-        <img src={categoryImg} alt="question"></img>
+        <img
+          src={categoryImg}
+          onError={(event) => (event.target.style.display = "none")}
+          alt="question"
+        ></img>
       </div>
       <div className="button-container">
         {choices.map((choice, index) => (
