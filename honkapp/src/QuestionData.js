@@ -73,7 +73,7 @@ export const questionDataCSS = {
   },
 
   6: {
-    image: "",
+    image: "https://i.imgur.com/gYqyY23.png",
     question: "What word should go in the blank below to align the text in the centre?",
     score: 1,
     difficulty: 1,
@@ -197,8 +197,8 @@ export const questionDataJS = {
   },
 
   6: {
-    image: "https://i.imgur.com/gYqyY23.png",
-    question: "How do write comments over multiple lines in JavaScript?",
+    image: "",
+    question: "How do you write comments over multiple lines in JavaScript?",
     score: 1,
     difficulty: 1,
     choice1: "/* */",
@@ -221,7 +221,7 @@ export const questionDataJS = {
   },
   
   8: {
-    image: "",
+    image: "https://i.imgur.com/Z9jGZ5e.png",
     question: "What missing word should go in the blank below?",
     score: 1,
     difficulty: 1,
@@ -233,7 +233,7 @@ export const questionDataJS = {
   },
 
   9: {
-    image: "https://i.imgur.com/Z9jGZ5e.png",
+    image: "",
     question: "How do you write the arrow function in JavaScript?",
     score: 1,
     difficulty: 1,
