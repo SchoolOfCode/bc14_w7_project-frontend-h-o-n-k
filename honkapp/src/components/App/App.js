@@ -22,6 +22,10 @@ function App() {
     }
   }, []);
 
+  function resetScore() {
+    setScore(0);
+    localStorage.setItem("score", 0);
+  }
   function playsoundCorrect() {
     new Audio(correct).play();
   }
@@ -58,6 +62,15 @@ function App() {
       localStorage.setItem("score", score + 1);
       playsoundCorrect();
       setClicked(true);
+      const image = document.getElementById("myImage"); // image is saved to local public folder
+      image.src = "./png-transparent-super-mario-coin-illustration-super-mario-bros-super-mario-world-minecraft-coin-stack-angle-heroes-super-mario-bros-removebg-preview.png"; // update the image source to reference the local file path
+      image.classList.add("visible");
+      image.classList.add("small");
+      setTimeout(() => {
+        image.classList.remove("visible"); // new function, found on w3
+        image.classList.remove("small"); // have issues unless you remove this classlist 
+        image.src = "";
+      }, 2000)
     } else {
       setMessage(`Sorry, that's incorrect. The correct answer is ${answer}`);
       playsoundIncorrect();
@@ -111,6 +124,10 @@ function App() {
           ></img>
         )}
       </div>
+
+<button className="reset-score-button" onClick={resetScore}>
+      
+      </button>
 
       <div className="button-container">
         {choices.map((choice, index) => (
