@@ -120,9 +120,9 @@ function App() {
           </button>
         ))}
       </div>
-      <button onClick={() => nextQuestion()}>Next Question</button>
+      <button className="next-qu-button" onClick={() => nextQuestion()}>Next Question</button>
       <h4> {message} </h4>
-      <h4>Score: {score}</h4>
+      <h4 className="score-container">Score: {score}</h4>
     </>
   );
 }
