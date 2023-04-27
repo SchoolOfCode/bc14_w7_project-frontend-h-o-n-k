@@ -17,3 +17,19 @@ test("Click on the dropdown and select JS. Do buttons appear?", async () => {
   const button = screen.getByRole("button");
   expect(button).toBeInTheDocument();
 });
+
+test("Click on the dropdown and select CSS. Do buttons appear?", async () => {
+  render(<App />);
+  let dropdown = await screen.findByText(/Select a category!/i);
+  userEvent.click(dropdown);
+  let css = await screen.findByText(/CSS/i);
+  userEvent.click(css);
+  const button = screen.getByRole("button");
+  expect(button).toBeInTheDocument();
+});
+
+test("Does the score appear?", () => {
+  render(<App />);
+  const linkElement = screen.getByText(/Score: /i);
+  expect(linkElement).toBeInTheDocument();
+});
