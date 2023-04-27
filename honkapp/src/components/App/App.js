@@ -35,7 +35,7 @@ function App() {
   }
 
   function randomiseNumber() {
-    setRandomNumber(Math.floor(Math.random() * 6));
+    setRandomNumber(Math.floor(Math.random() * 10));
   }
 
   function nextQuestion() {
@@ -63,14 +63,15 @@ function App() {
       playsoundCorrect();
       setClicked(true);
       const image = document.getElementById("myImage"); // image is saved to local public folder
-      image.src = "./png-transparent-super-mario-coin-illustration-super-mario-bros-super-mario-world-minecraft-coin-stack-angle-heroes-super-mario-bros-removebg-preview.png"; // update the image source to reference the local file path
+      image.src =
+        "./coin.png"; // update the image source to reference the local file path
       image.classList.add("visible");
       image.classList.add("small");
       setTimeout(() => {
         image.classList.remove("visible"); // new function, found on w3
-        image.classList.remove("small"); // have issues unless you remove this classlist 
+        image.classList.remove("small"); // have issues unless you remove this classlist
         image.src = "";
-      }, 2000)
+      }, 2000);
     } else {
       setMessage(`Sorry, that's incorrect. The correct answer is ${answer}`);
       playsoundIncorrect();
@@ -125,9 +126,7 @@ function App() {
         )}
       </div>
 
-<button className="reset-score-button" onClick={resetScore}>
-      
-      </button>
+      <button className="reset-score-button" onClick={resetScore}></button>
 
       <div className="button-container">
         {choices.map((choice, index) => (
@@ -141,11 +140,15 @@ function App() {
           </button>
         ))}
       </div>
-      <button className="next-qu-button" onClick={() => nextQuestion()}>
-        Next Question
-      </button>
-      <h4> {message} </h4>
-      <h4 className="score-container">Score: {score}</h4>
+      {category && (
+        <>
+          <button className="next-qu-button" onClick={() => nextQuestion()}>
+            Next Question
+          </button>
+          <h4> {message} </h4>
+          <h4 className="score-container">Score: {score}</h4>
+        </>
+      )}
     </>
   );
 }

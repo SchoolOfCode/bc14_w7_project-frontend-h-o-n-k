@@ -61,6 +61,8 @@ border-radius: 10px;
 padding: 10px;
 box-shadow: 2px 2px 1px  var(--richBlack);
 margin: 0 30px 0 30px;
+cursor: pointer;
+overflow-wrap: break-word;
 }
 
 .drop-down {
@@ -114,7 +116,7 @@ option {
 }
 
 .reset-score-button {
-  background-image: url("./png-transparent-super-mario-coin-illustration-super-mario-bros-super-mario-world-minecraft-coin-stack-angle-heroes-super-mario-bros-removebg-preview.png");
+  background-image: url("./coin.png");
   background-size: contain;
   background-position: center;
   width: 50px;
