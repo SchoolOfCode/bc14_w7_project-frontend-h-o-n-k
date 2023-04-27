@@ -63,15 +63,15 @@ function App() {
       playsoundCorrect();
       setClicked(true);
       const image = document.getElementById("myImage"); // image is saved to local public folder
-      image.src =
-        "./coin.png"; // update the image source to reference the local file path
+
+      image.src = "./coin.png"; // update the image source to reference the local file path
       image.classList.add("visible");
       image.classList.add("small");
       setTimeout(() => {
         image.classList.remove("visible"); // new function, found on w3
         image.classList.remove("small"); // have issues unless you remove this classlist
         image.src = "";
-      }, 2000);
+      }, 650);
     } else {
       setMessage(`Sorry, that's incorrect. The correct answer is ${answer}`);
       playsoundIncorrect();

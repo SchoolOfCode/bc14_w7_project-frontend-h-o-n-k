@@ -113,6 +113,7 @@ option {
   position: absolute;
   bottom: 10px;
   left: 10px;
+  animation: coinjump .5s ease-in-out;
 }
 
 .reset-score-button {
@@ -124,4 +125,29 @@ option {
   position: absolute;
   bottom: 0;
   right: 10px;
+  
+}
+
+
+  
+@keyframes coinjump {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  20% {
+    transform: translateY(-30px) rotate(30deg);
+  }
+  40% {
+    transform: translateY(-40px) rotate(90deg);
+  }
+  60% {
+    transform: translateY(-50px) rotate(180deg);
+  }
+  80% {
+    transform: translateY(-40px) rotate(270deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+
 }
