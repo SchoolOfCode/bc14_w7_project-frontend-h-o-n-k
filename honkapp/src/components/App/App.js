@@ -13,6 +13,7 @@ function App() {
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("");
   const [category, setCategory] = useState("");
+  const [clicked, setClicked] = useState(false);
 
   function playsoundCorrect() {
     new Audio(correct).play();
@@ -36,6 +37,7 @@ function App() {
     randomiseNumber();
     setChoices([]);
     setMessage("");
+    setClicked(false);
     setCategoryQ(data.question);
     setCategoryImg(data.image);
     setAnswer(data.answer);
@@ -47,9 +49,11 @@ function App() {
       setMessage("Well done! That is the correct answer!");
       setScore(score + 1);
       playsoundCorrect();
+      setClicked(true);
     } else {
       setMessage(`Sorry, that's incorrect. The correct answer is ${answer}`);
       playsoundIncorrect();
+      setClicked(true);
     }
   }
 
@@ -65,6 +69,7 @@ function App() {
       setAnswer(data.answer);
       setChoices([data.choice1, data.choice2, data.choice3, data.choice4]);
       setMessage("");
+      setClicked(false)
     } else if (value === "JS") {
       const data = questionDataJS[randomNumber];
       setCategoryQ(data.question);
@@ -72,6 +77,7 @@ function App() {
       setAnswer(data.answer);
       setChoices([data.choice1, data.choice2, data.choice3, data.choice4]);
       setMessage("");
+      setClicked(false)
     }
   }
 
@@ -103,6 +109,7 @@ function App() {
             key={index}
             className="answer-option"
             onClick={() => handleChoice(choice)}
+            disabled={clicked}
           >
             {choice}
           </button>
