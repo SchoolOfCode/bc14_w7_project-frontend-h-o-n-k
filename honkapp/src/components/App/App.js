@@ -6,15 +6,14 @@ import { questionDataJS, questionDataCSS } from "../../QuestionData";
 
 function App() {
   const [categoryQ, setCategoryQ] = useState("Select a category!");
-  const [categoryImg, setCategoryImg] = useState(
-    "https://i.imgur.com/UPMqTgr.png"
-  );
+  const [categoryImg, setCategoryImg] = useState("");
   const [randomNumber, setRandomNumber] = useState(0);
   const [answer, setAnswer] = useState("");
   const [choices, setChoices] = useState([]);
   const [score, setScore] = useState(0);
   const [message, setMessage] = useState("");
   const [category, setCategory] = useState("");
+  const [clicked, setClicked] = useState(false);
 
   function playsoundCorrect() {
     new Audio(correct).play();
@@ -38,6 +37,7 @@ function App() {
     randomiseNumber();
     setChoices([]);
     setMessage("");
+    setClicked(false);
     setCategoryQ(data.question);
     setCategoryImg(data.image);
     setAnswer(data.answer);
@@ -49,9 +49,11 @@ function App() {
       setMessage("Well done! That is the correct answer!");
       setScore(score + 1);
       playsoundCorrect();
+      setClicked(true);
     } else {
       setMessage(`Sorry, that's incorrect. The correct answer is ${answer}`);
       playsoundIncorrect();
+      setClicked(true);
     }
   }
 
@@ -67,6 +69,7 @@ function App() {
       setAnswer(data.answer);
       setChoices([data.choice1, data.choice2, data.choice3, data.choice4]);
       setMessage("");
+      setClicked(false)
     } else if (value === "JS") {
       const data = questionDataJS[randomNumber];
       setCategoryQ(data.question);
@@ -74,6 +77,7 @@ function App() {
       setAnswer(data.answer);
       setChoices([data.choice1, data.choice2, data.choice3, data.choice4]);
       setMessage("");
+      setClicked(false)
     }
   }
 
@@ -93,7 +97,11 @@ function App() {
       </select>
       <div className="question-container">
         <h2 className="question">{categoryQ}</h2>
-        <img src={categoryImg} alt="question"></img>
+        <img
+          src={categoryImg}
+          onError={(event) => (event.target.style.display = "none")}
+          alt="question"
+        ></img>
       </div>
       <div className="button-container">
         {choices.map((choice, index) => (
@@ -101,6 +109,7 @@ function App() {
             key={index}
             className="answer-option"
             onClick={() => handleChoice(choice)}
+            disabled={clicked}
           >
             {choice}
           </button>
