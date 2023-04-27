@@ -59,6 +59,18 @@ export const questionDataCSS = {
     choice4: "margin: 2px 10px 20px",
     answer: "margin: 10px 20px 2px",
   },
+
+  5: {
+    image: "https://i.imgur.com/UPMqTgr.png",
+    question: "Which of the following is not a valid CSS length unit?",
+    score: 1,
+    difficulty: 1,
+    choice1: "cm",
+    choice2: "mm",
+    choice3: "dm",
+    choice4: "km",
+    answer: "km",
+  },
 };
 
 export const questionDataJS = {
@@ -121,5 +133,17 @@ export const questionDataJS = {
     choice3: "Calculate",
     choice4: "Math",
     answer: "Math",
+  },
+
+  5: {
+    image: "https://i.imgur.com/UPMqTgr.png",
+    question: "How do we if statement in JavaScript?",
+    score: 1,
+    difficulty: 1,
+    choice1: "if (x === 5)",
+    choice2: "if x === 5",
+    choice3: "if x = 5",
+    choice4: "if x == 5",
+    answer: "if (x === 5)",
   },
 };

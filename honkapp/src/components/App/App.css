@@ -3,10 +3,7 @@ height: 100%;
 width: 100%;
 margin: 0;
 Padding: 0;
-
 }
-
-
 
 :root {
   --richBlack: #000717;
@@ -18,8 +15,17 @@ Padding: 0;
 * {
   text-align: center;
   color: var(--platinum);
-  background-color: var(--ChefBlue);
-  
+  background-color: var(--ChefBlue);  
+}
+
+.question {
+  background-color: var(--richBlack);
+  border-radius: 10px;
+  font-size: xx-large;
+  text-shadow: 2px 2px 2px black;
+  width: 60%;
+  margin: 0 auto 15px  ;
+  padding: 10px;
 }
 
 .question-container {
@@ -28,7 +34,6 @@ Padding: 0;
   width: 60%;
   margin: 0 auto 15px  ;
   padding: 10px;
- 
 }
 
 .button-container {
@@ -37,10 +42,10 @@ Padding: 0;
   width: 70%;
   margin: 0 auto;
   padding: 5px;
+  box-shadow: 3px 3px 1px  var(--richBlack);
   display: flex;
   justify-content: space-between; 
   height: 70 px;
-
 }
 
 
@@ -49,14 +54,14 @@ color: var(--richBlack);
 background-color: var(--platinum);
 border-radius: 10px;
 padding: 10px;
-box-shadow: 4px 4px 1px  var(--richBlack);
-
-
+box-shadow: 2px 2px 1px  var(--richBlack);
 }
 
 
 .drop-down {
   color: var(--richBlack);
+  font-weight: bold;
+  font-size: large;
   background-color: var(--platinum);
   border-radius: 10px;
   padding: 5px;
@@ -79,6 +84,8 @@ option {
 }
 .answer-option {
   display: inline-block;
+  font-weight: bold;
+  font-size: large;
   color: var(--richBlack);
   background-color: var(--platinum);
   height: 40px; 
