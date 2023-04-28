@@ -91,6 +91,7 @@ function App() {
       setAnswer(data.answer);
       setChoices([data.choice1, data.choice2, data.choice3, data.choice4]);
       setMessage("");
+      setClicked(false);
     } else if (value === "JS") {
       const data = questionDataJS[randomNumber];
       setCategoryQ(data.question);
@@ -98,6 +99,7 @@ function App() {
       setAnswer(data.answer);
       setChoices([data.choice1, data.choice2, data.choice3, data.choice4]);
       setMessage("");
+      setClicked(false);
     }
   }
 
@@ -125,9 +127,6 @@ function App() {
           ></img>
         )}
       </div>
-
-      <button className="reset-score-button" onClick={resetScore}></button>
-
       <div className="button-container">
         {choices.map((choice, index) => (
           <button
@@ -149,6 +148,7 @@ function App() {
           <h4 className="score-container">Score: {score}</h4>
         </>
       )}
+      <button className="reset-score-button" onClick={resetScore}></button>
     </>
   );
 }

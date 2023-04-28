@@ -1,6 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
+import { expect, jest, test } from "@jest/globals"
 
 test('Does the "Select a category" text appear?', () => {
   render(<App />);
@@ -28,8 +29,18 @@ test("Click on the dropdown and select CSS. Do buttons appear?", async () => {
   expect(button).toBeInTheDocument();
 });
 
-test("Does the score appear?", () => {
+test("Does the score appear?", async () => {
   render(<App />);
-  const linkElement = screen.getByText(/Score: /i);
-  expect(linkElement).toBeInTheDocument();
+  let dropdown = screen.getByRole('combobox');
+  userEvent.click(dropdown);
+  const css = screen.getByRole('option', {
+    name: /css/i
+  })
+  userEvent.selectOptions(dropdown, css);
+  await userEvent.click(css);
+  const scoreElement = await screen.findByText(/Score: /i);
+  expect(scoreElement).toBeInTheDocument();
 });
+
+/* perfect for debugging
+screen.logTestingPlaygroundURL() */
