@@ -114,8 +114,11 @@ function App() {
         <option value="" selected disabled>
           Select a category
         </option>
-        <option value="JS">JS</option>
+        <option value="HTML">HTML</option>
         <option value="CSS">CSS</option>
+        <option value="JS">JS</option>
+        <option value="React">React</option>
+        <option value="API">API</option>
       </select>
       <div className="question-container">
         <h2 className="question">{categoryQ}</h2>
