@@ -1,10 +1,11 @@
-import "./App.css";
-import correct from "../../Assets/correct.wav";
-import incorrect from "../../Assets/incorrect.wav";
 import React, { useState, useEffect } from "react";
 import { questionDataJS, questionDataCSS } from "../../QuestionData";
+import correct from "../../Assets/correct.wav";
+import incorrect from "../../Assets/incorrect.wav";
+import "./App.css";
 
 function App() {
+  const [usedNumbers, setUsedNumbers] = useState([]);
   const [categoryQ, setCategoryQ] = useState("Select a category!");
   const [categoryImg, setCategoryImg] = useState("");
   const [randomNumber, setRandomNumber] = useState(0);
@@ -34,18 +35,22 @@ function App() {
     new Audio(incorrect).play();
   }
 
-  function randomiseNumber() {
-    setRandomNumber(Math.floor(Math.random() * 10));
+  function randomiseNumber(usedNumbers) {
+    let randomNumber = Math.floor(Math.random() * 10);
+    while (usedNumbers.includes(randomNumber)) {
+      randomNumber = Math.floor(Math.random() * 10);
+    }
+    return randomNumber;
   }
 
   function nextQuestion() {
     let data;
     if (category === "CSS") {
-      data = questionDataCSS[randomNumber];
+      data = questionDataCSS[randomiseNumber(usedNumbers)];
     } else if (category === "JS") {
-      data = questionDataJS[randomNumber];
+      data = questionDataJS[randomiseNumber(usedNumbers)];
     }
-    randomiseNumber();
+    setUsedNumbers([...usedNumbers, data.id]);
     setChoices([]);
     setMessage("");
     setClicked(false);
@@ -54,6 +59,7 @@ function App() {
     setAnswer(data.answer);
     setChoices([data.choice1, data.choice2, data.choice3, data.choice4]);
   }
+  
 
   function handleChoice(choice) {
     if (choice === answer) {
@@ -82,17 +88,18 @@ function App() {
   function handleCategoryChange(event) {
     const value = event.target.value;
     setCategory(value);
-    randomiseNumber();
-
+    setUsedNumbers([]);
+    randomiseNumber([]);
+  
     if (value === "CSS") {
-      const data = questionDataCSS[randomNumber];
+      const data = questionDataCSS[randomiseNumber([])];
       setCategoryQ(data.question);
       setCategoryImg(data.image);
       setAnswer(data.answer);
       setChoices([data.choice1, data.choice2, data.choice3, data.choice4]);
       setMessage("");
     } else if (value === "JS") {
-      const data = questionDataJS[randomNumber];
+      const data = questionDataJS[randomiseNumber([])];
       setCategoryQ(data.question);
       setCategoryImg(data.image);
       setAnswer(data.answer);
@@ -100,6 +107,7 @@ function App() {
       setMessage("");
     }
   }
+  
 
   return (
     <>

@@ -14,21 +14,7 @@
     <title>HonK</title>
   </head>
   <body>
-    <button onclick="toggleAudio()" style="position: absolute; top: 0; left: 0; border-radius: 50%; width: 30px; height: 30px; background-image: url('bird.jpg'); background-size: cover;"></button>
-    <audio id="myAudio">
-      <source src="/Bird-song.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-    <script>
-      const audio = document.getElementById("myAudio");
-      function toggleAudio() {
-        if (audio.paused) {
-          audio.play();
-        } else {
-          audio.pause();
-        }
-      }
-    </script>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <img id="myImage" src="" />

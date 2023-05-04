@@ -1,5 +1,6 @@
-export const questionDataCSS = {
-  0: {
+export const questionDataCSS = [ 
+ {
+  id: 0,
     image: "",
     question: "How do you select a class in CSS?",
     score: 1,
@@ -10,7 +11,9 @@ export const questionDataCSS = {
     choice4: "@",
     answer: ".",
   },
-  1: {
+
+ {
+  id: 1,
     image: "",
     question: "What does CSS stand for?",
     score: 1,
@@ -22,7 +25,8 @@ export const questionDataCSS = {
     answer: "Cascading Style Sheets",
   },
 
-  2: {
+ {
+  id: 2,
     image: "https://i.imgur.com/xrEr66g.png",
     question: "Fill in the blank below to make this container into a flexbox",
     score: 1,
@@ -34,7 +38,8 @@ export const questionDataCSS = {
     answer: "flex",
   },
 
-  3: {
+{
+  id:3,
     image: "https://i.imgur.com/iJWzY8Q.png",
     question:
       "What property would you use to make this button have rounded edges?",
@@ -47,7 +52,8 @@ export const questionDataCSS = {
     answer: "border-radius",
   },
 
-  4: {
+ {
+  id: 4, 
     image: "",
     question:
       "Which of the following creates a margin around the element of 10px at the top, 20px at the sides and 2px at the bottom?",
@@ -60,7 +66,8 @@ export const questionDataCSS = {
     answer: "margin: 10px 20px 2px",
   },
 
-  5: {
+  {
+    id: 5, 
     image: "",
     question: "Which of the following is not a valid CSS length unit?",
     score: 1,
@@ -72,7 +79,8 @@ export const questionDataCSS = {
     answer: "km",
   },
 
-  6: {
+ {
+  id: 6, 
     image: "https://i.imgur.com/gYqyY23.png",
     question: "What word should go in the blank below to align the text in the centre?",
     score: 1,
@@ -84,7 +92,8 @@ export const questionDataCSS = {
     answer: "center",
   },
 
-  7: {
+ {
+  id: 7, 
     image: "",
     question: "If you wanted to change the size of the font, what property should you use?",
     score: 1,
@@ -96,7 +105,7 @@ export const questionDataCSS = {
     answer: "font-size",
   },
 
-  8: {
+ { id: 8, 
     image: "https://i.imgur.com/8NNHIaI.png",
     question: "What property would you need to create an inner shadow like the one shown in the picture?",
     score: 1,
@@ -108,7 +117,8 @@ export const questionDataCSS = {
     answer: "box-shadow",
   },
   
-  9: {
+   { 
+    id: 9, 
     image: "",
     question: "If you wanted to change the colour of a link once it has been clicked, what pseudo-class would you need?",
     score: 1,
@@ -119,11 +129,11 @@ export const questionDataCSS = {
     choice4: ":visited",
     answer: ":visited",
   },
+]; 
 
-};
-
-export const questionDataJS = {
-  0: {
+export const questionDataJS = [ 
+ {
+  id: 0, 
     image: "",
     question: "What type of variable is a 'const'?",
     score: 1,
@@ -135,7 +145,8 @@ export const questionDataJS = {
     answer: "Block-scoped",
   },
 
-  1: {
+ {
+  id: 1, 
     image: "https://i.imgur.com/5RDpqMc.png",
     question: "What missing word should go in the blank space below?",
     score: 1,
@@ -147,7 +158,8 @@ export const questionDataJS = {
     answer: "return",
   },
 
-  2: {
+{
+  id: 2, 
     image: "https://i.imgur.com/dkoR2BE.png",
     question: "Read the function below. What is the value of 'x'?",
     score: 1,
@@ -159,7 +171,8 @@ export const questionDataJS = {
     answer: "1",
   },
 
-  3: {
+ {
+  id: 3, 
     image: "https://i.imgur.com/h5acI50.png",
     question:
       "How would you select the key with the value 'Buenos Aires' in this nested object?",
@@ -172,7 +185,8 @@ export const questionDataJS = {
     answer: "theWorld.country[0].capital",
   },
 
-  4: {
+  {
+    id: 4, 
     image: "https://i.imgur.com/1ujS9k4.png",
     question: "What word is missing from the code below?",
     score: 1,
@@ -184,7 +198,8 @@ export const questionDataJS = {
     answer: "Math",
   },
 
-  5: {
+ {
+  id: 5, 
     image: "",
     question: "How do we write an if statement in JavaScript?",
     score: 1,
@@ -196,7 +211,8 @@ export const questionDataJS = {
     answer: "if (x === 5)",
   },
 
-  6: {
+ { 
+  id: 6, 
     image: "",
     question: "How do you write comments over multiple lines in JavaScript?",
     score: 1,
@@ -208,7 +224,8 @@ export const questionDataJS = {
     answer: "/* */",
   },
   
-  7: {
+ { 
+  id: 7, 
     image: "https://i.imgur.com/uB9FH6M.png",
     question: "What do you think the expected output of this code will be?",
     score: 1,
@@ -220,7 +237,7 @@ export const questionDataJS = {
     answer: "4",
   },
   
-  8: {
+ {  id: 8, 
     image: "https://i.imgur.com/Z9jGZ5e.png",
     question: "What missing word should go in the blank below?",
     score: 1,
@@ -232,7 +249,8 @@ export const questionDataJS = {
     answer: "async",
   },
 
-  9: {
+ {
+  id: 9, 
     image: "",
     question: "How do you write the arrow function in JavaScript?",
     score: 1,
@@ -243,9 +261,7 @@ export const questionDataJS = {
     choice4: "+=>",
     answer: "() =>",
   },
-
-
-};
+]
 
 
 
