@@ -1,0 +1,12 @@
+{
+    "homepage": "https://lastcastleofbowser.github.io/bc14_w7_project-frontend-h-o-n-k", 
+  "scripts": {
+    "predeploy": "npm run build", 
+   "deploy": "gh-pages -d build", 
+   "build": "npm run build"
+  },
+
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  }
+}
